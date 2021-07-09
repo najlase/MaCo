@@ -1,0 +1,73 @@
+<div class="d-flex" id="wrapper">
+  <div class="border-right" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+
+
+      <div class="filter">
+        <div class="input-group mb-2">
+          <input type="text" [(ngModel)]="claimsFilters.description" name="filterTitle" style="padding-left: 10px;border-radius: 10px 0px 0px 10px; border: 1px solid silver;" id="inlineFormInputGroup" placeholder="Search by title">
+          <div class="input-group-prepend">
+            <div class="input-group-text" style="border-radius: 0px 10px 10px 0px;">
+              <fa-icon [icon]="faSearch"></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter">
+        <span class="ml-2">Minimum Reduction</span>
+        <input type="number" class="form-control mr-sm-2" [(ngModel)]="claimsFilters.reduction" name="filterReduction">
+      </div>
+
+      <div class="filter">
+        <span class="ml-2">Partner</span>
+        <select class="custom-select mr-sm-2" [(ngModel)]="claimsFilters.partner" name="filterPartner">
+          <option value="">Choose...</option>
+          <option>Tunisia</option>
+          <option>France</option>
+          <option>US</option>
+        </select>
+      </div>
+
+      <div class="filter">
+        <span class="ml-2">Starts after</span>
+        <input type="date" class="form-control mr-sm-2" [(ngModel)]="claimsFilters.start_date" name="filterStartingDate">
+      </div>
+
+      <div class="filter">
+        <span class="ml-2">Ends before</span>
+        <input type="date" class="form-control mr-sm-2" [(ngModel)]="claimsFilters.end_date" name="filterEndDate">
+      </div>
+
+      <div class="form-check filter">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Show starred only
+        </label>
+      </div>
+
+      <button class="btn btn-success" style="margin-top: 20px; background-color: #368c95; border: 0px;" (click)="filter()">Filter</button>
+    </div>
+  </div>
+
+
+
+  <div class="content">
+    <h3>Recent Posts</h3>
+    <div style="margin-top: 50px;">
+      <h1 *ngIf="claims.length == 0" style="color: gray;text-align: center;"> No Results Found </h1>
+      <div *ngFor="let claim of claims; let i = index" class="claim">
+        <div style="padding-bottom: 20px; position: relative" class="claim-info">
+          <h2>{{claim.partner}}</h2> <div style="position: absolute; right: 30px; top: 30px;" class="badge badge-success" *ngIf="claim.validated">Validated</div><div style="position: absolute; right: 30px; top: 30px;" class="badge badge-warning" *ngIf="!claim.validated">Pending</div>
+          <h5>{{claim.reduction}}% Off</h5>
+          <h6 class="deadline">End Date: {{claim.end_date|date}} <span style="margin-left: 20px;">Starting Date: {{claim.start_date |date}}</span></h6>
+          <div *ngIf="!isDetailedView[i]" class="claim-description">{{claim.description}}</div>
+          <div *ngIf="isDetailedView[i]" class="detailed-claim-description">{{claim.description}}</div>
+          <button *ngIf="!claim.validated" class="claim-card-btn" (click)="unclaimAsStudent(i)">Unclaim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

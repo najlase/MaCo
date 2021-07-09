@@ -1,0 +1,32 @@
+<nav *ngIf="authService.user" class="navbar navbar-expand-lg border-bottom" style="height: 70px;">
+  <a class="navbar-brand" href="#">
+    <img src="../../../../assets/logo.png" style="height: 70px; width: 70px; margin-left: 50px;" alt="Home Page" id="open-menu">
+  </a>
+
+
+  <div style="margin-left: calc(20% - 245px);" class="navbar-item" routerLinkActive="active" [routerLink]="['/dashboard']" fragment="education">
+    Dashboard
+  </div>
+
+  <div *ngIf="authService.user?.role === 1" class="navbar-item" routerLinkActive="active" [routerLink]="['/claims']" fragment="education">
+    My Claims
+  </div>
+
+  <div *ngIf="authService.user?.role === 2" class="navbar-item" routerLinkActive="active" [routerLink]="['/manage-claims']" fragment="education">
+    Claims
+  </div>
+
+  <div class="navbar-item" routerLinkActive="active" [routerLink]="['/partners']" fragment="education">
+    Our Partners
+  </div>
+
+  <div class="navbar-item" routerLinkActive="active" [routerLink]="['/profile']" fragment="education">
+    Profile
+  </div>
+
+  <div style="position: absolute; right: 0px; padding-left: 30px; height: 100%; margin-right: 0px; padding-top: 17px; padding-right: 30px; background: #046b73;" class="navbar-item" (click)="authService.logout()">
+    Log out
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

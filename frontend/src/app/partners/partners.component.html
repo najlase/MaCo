@@ -1,0 +1,13 @@
+<div style="margin-top: 50px;">
+  <h1 *ngIf="partners.length == 0" style="color: gray;text-align: center;"> No Results Found </h1>
+  <div *ngFor="let partner of partners; let i = index" class="partner">
+    <img [src]="partner.logo" style="    height: 300px;
+    width: auto;
+    transform: translateX(-50%);
+    margin-left: 50%;"/>
+    <div class="partner-info">
+      <h2>{{partner.name}}</h2>
+      <div style="display: inline-block; margin-right: 10px; float: right;" *ngFor="let category of partner.categories"> <span style="font-weight: normal; font-size: 16px;" class="badge badge-pill badge-primary">{{category}}</span></div>
+    </div>
+  </div>
+</div>

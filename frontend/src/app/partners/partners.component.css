@@ -1,0 +1,47 @@
+.partner {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 15%;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.partner .deadline {
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
+  /*text-transform: uppercase;*/
+}
+
+.partner h2 {
+  letter-spacing: 1px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.partner-preview {
+  background-color: #f7f7f7;
+  padding: 15px;
+  width: 20%;
+}
+
+.partner-preview a {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+.partner-info {
+  border-top: 1px solid silver;
+  padding-top: 10px;
+  position: relative;
+  width: 100%
+}

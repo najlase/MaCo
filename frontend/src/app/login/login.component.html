@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="image-holder">
+    <img src="../../assets/images/MACO.png" class="logo">
+  </div>
+  <div class="form-inner">
+    <form action="">
+      <div class="form-header">
+        <h3>Sign in</h3>
+        <img src="../../assets/images/sign-up.png" alt="" class="sign-up-icon">
+      </div>
+
+      <div *ngIf="loginFailed" style="color: red;margin-bottom: 25px;text-align: center;">Wrong email / password combination.</div>
+
+      <div class="form-group">
+        <label for="">E-mail:</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="">Password:</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="password">
+      </div>
+      <button (click)="login()">login</button>
+
+    </form>
+  </div>
+
+</div>
